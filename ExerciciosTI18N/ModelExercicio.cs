@@ -59,10 +59,57 @@ namespace ExerciciosTI18N
         }//Fim do area
 
         //Exercício 05 - Percentual de Eleitores
-        public double Percentual(int votos, int totalEleitores)
+        public double Percentual(double votos, double totalEleitores)
         {
             return (votos / totalEleitores) * 100;
         }//Fim do percentual
+
+        public Boolean Validar(double num)
+        {
+            if (num < 0) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Exercício 06
+        public double NovoSalario(double salario, double reajuste)
+        {
+            return salario + (salario * (reajuste / 100));
+        }//Fim do NovoSalario
+
+        //Exercicio 07
+        public double CustoFinal(double custoFabrica, double pDistribuidor, double pImposto)
+        {
+            return custoFabrica + (custoFabrica * (pDistribuidor / 100)) + (custoFabrica * (pImposto / 100));
+        }//Fim do CustoFinal
         
+       //Exercício 08
+       public double SalarioFinal(double salario, double comissao, int quantidade, double totalVendas)
+       {
+            return salario + (comissao * quantidade) + (totalVendas * 0.05);
+       }//Fim do SalarioFinal
+
+        //Exercício 09
+        public double Media(double nota1, double nota2, double nota3)
+        {
+            return (nota1 + nota2 + nota3) / 3;
+        }//Fim Media
+
+        public double NotaParaPassar(double media)
+        {
+            if (media >= 0 && media < 5)
+            {
+                return 10 - media + 2;
+            }
+            else
+            {
+                return 10 - media;
+            }
+        }
     }//Fim da Classe
 }//Fim do Projeto

@@ -25,7 +25,7 @@ namespace ExerciciosTI18N
 
         public void Menu()
         {
-            Console.WriteLine("\n\n ---------- Menu ----------\n" +
+            Console.WriteLine("\n\n---------- Menu -------------\n" +
                               "0. Sair\n" +
                               "1. Exercício 01\n" +
                               "2. Exercício 02\n" +
@@ -33,9 +33,27 @@ namespace ExerciciosTI18N
                               "4. Exercício 04\n" +
                               "5. Exercício 05\n" +
                               "6. Exercício 06\n" +
-                              "Escolha uma das opções acima: ");
+                              "7. Exercício 07\n" +
+                              "8. Exercício 08\n" +
+                              "9. Exercício 09\n" +
+                              "10. Exercício 10\n" +
+                              "-----------------------------" +
+                              "\nEscolha uma das opções acima: ");
             ConsultarOpcao = Convert.ToInt32(Console.ReadLine());
         }//Fim do método menu
+
+        public void MenuCd()
+        {
+            Console.WriteLine("\n\n---------- Menu -------------\n" +
+                              "0. Sair\n" +
+                              "1. Verde\n" +
+                              "2. Azul\n" +
+                              "3. Amarelo\n" +
+                              "4. Vermelho\n" +
+                              "-----------------------------" +
+                              "\nEscolha um dos tipos de CD's acima: ");
+            ConsultarOpcao = Convert.ToInt32((Console.ReadLine()));
+        }
 
         public void Operacao()
         {
@@ -93,43 +111,308 @@ namespace ExerciciosTI18N
                         Console.WriteLine("O antecessor deste número é: " + exercicio.Antecessor(num));
                         break;
                     case 4:
-                        Console.WriteLine("Informe a base: ");
-                        double base2 = Convert.ToDouble(Console.ReadLine());
+                        double base2;
+                        double altura;
 
-                        Console.WriteLine("Informe a altura: ");
-                        double altura = Convert.ToDouble(Console.ReadLine());
+                        do
+                        {
+                            Console.WriteLine("Informe a base: ");
+                            base2 = Convert.ToDouble(Console.ReadLine());
+
+                            if (base2 <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (base2 <= 0);
+
+                        do
+                        {
+                            Console.WriteLine("Informe a altura: ");
+                            altura = Convert.ToDouble(Console.ReadLine());
+
+                            if (altura <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        }while (altura <= 0);
 
                         //Área do retângulo
                         Console.WriteLine("A área deste retângulo é: " + exercicio.Area(base2, altura));
                         break;
                     case 5:
-                        int totalEleitores = 0;
-                        int vBranco = 0;
-                        int vNulo = 0;
-                        int vValido = 0;
+                        double totalEleitores = 0;
+                        double vBranco = 0;
+                        double vNulo = 0;
+                        double vValido = 0;
+                       
+                        //Pegando os dados sobre os votos
                         do
                         {
-                            Console.WriteLine("Informe o total de eleitores: ");
-                            totalEleitores = Convert.ToInt32(Console.ReadLine());
+                            do
+                            {
 
-                            Console.WriteLine("Informe o número de votos brancos: ");
-                            vBranco = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Informe o total de eleitores: ");
+                                totalEleitores = Convert.ToInt32(Console.ReadLine());
 
-                            Console.WriteLine("Informe o número de votos nulos: ");
-                            vNulo = Convert.ToInt32(Console.ReadLine());
+                                if (exercicio.Validar(totalEleitores) == true)
+                                {
+                                    Console.WriteLine("Informe um valor maior que 0");
+                                }
+                            }while(totalEleitores <= 0);
 
-                            Console.WriteLine("Informe o número de votos válidos: ");
-                            vValido = Convert.ToInt32(Console.ReadLine());
+                            do
+                            {
+                                Console.WriteLine("Informe o número de votos brancos: ");
+                                vBranco = Convert.ToInt32(Console.ReadLine());
+
+                                if (exercicio.Validar(vBranco) == true)
+                                {
+                                    Console.WriteLine("Informe um valor maior que 0");
+                                }
+                            }while(vBranco <= 0);
+
+                            do
+                            {
+                                Console.WriteLine("Informe o número de votos nulos: ");
+                                vNulo = Convert.ToInt32(Console.ReadLine());
+
+                                if (exercicio.Validar(vNulo) == true)
+                                {
+                                    Console.WriteLine("Informe um valor maior que 0");
+                                }
+                            }while(vNulo <= 0);
+
+                            do
+                            {
+                                Console.WriteLine("Informe o número de votos válidos: ");
+                                vValido = Convert.ToInt32(Console.ReadLine());
+
+                                if (exercicio.Validar(vValido) == true)
+                                {
+                                    Console.WriteLine("Informe um valor maior que 0");
+                                }
+                            }while(vValido <= 0);
 
                             if (totalEleitores != vBranco + vNulo + vValido)
                             {
                                 Console.WriteLine("Erro! O número total de eleitores não coincide com o total de votos");
                             }
                         } while (totalEleitores != vBranco + vNulo + vValido);
+                        //Fim
 
+                        //Calculando o percentual
                         Console.WriteLine("O percentual de votos brancos é: " + exercicio.Percentual(vBranco, totalEleitores) + "%");
                         Console.WriteLine("O percentual de votos nulos é: " + exercicio.Percentual(vNulo, totalEleitores) + "%");
                         Console.WriteLine("O percentual de votos válidos é: " + exercicio.Percentual(vValido, totalEleitores) + "%");
+                        //Fim
+                        break;
+                    case 6:
+                        double salario;
+                        double reajuste;
+
+                        //Pedindo salário
+                        do
+                        {
+                            Console.WriteLine("Informe o salário atual: ");
+                            salario = Convert.ToDouble(Console.ReadLine());
+
+                            if (salario <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (salario <= 0);
+                        //Fim
+
+                        //Pedindo o percentual de reajuste
+                        do
+                        {
+                            Console.WriteLine("Informe o percentual de reajuste: ");
+                            reajuste = Convert.ToDouble(Console.ReadLine());
+
+                            if (reajuste <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        }while (reajuste <= 0);
+                        //Fim
+
+                        //Informando o novo salário
+                        Console.WriteLine("O novo salário deste funcionário é: " + exercicio.NovoSalario(salario, reajuste));
+
+                        break;
+                    case 7:
+                        double custoFabrica;
+                        double pDistribuidor;
+                        double pImposto;
+
+                        //Pegando os dados
+                        do
+                        {
+                            Console.WriteLine("Informe o custo de fábrica: ");
+                            custoFabrica = Convert.ToDouble(Console.ReadLine());
+
+                            if (custoFabrica <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        }while(custoFabrica <= 0);
+
+                        do
+                        {
+                            Console.WriteLine("Informe a porcentagem do distribuidor: ");
+                            pDistribuidor = Convert.ToDouble(Console.ReadLine());
+
+                            if (pDistribuidor <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (pDistribuidor <= 0);
+
+                        do
+                        {
+                            Console.WriteLine("Informe a porcentagem dos impostos: ");
+                            pImposto = Convert.ToDouble(Console.ReadLine());
+
+                            if (pImposto <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (pImposto <= 0);
+
+                        //Mostrando em tela
+                        Console.WriteLine("O custo final é: " + exercicio.CustoFinal(custoFabrica, pDistribuidor, pImposto));
+
+                        break;
+                    case 8:
+                        
+                        //Pegando os dados
+                        do
+                        {
+                            Console.WriteLine("Informe o salário do funcionário: ");
+                            salario = Convert.ToDouble(Console.ReadLine());
+
+                            if (salario <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        }while(salario <= 0);
+
+                        double comissao;                        
+                        do
+                        {
+                            Console.WriteLine("Informe a comissão por carro vendido: ");
+                            comissao = Convert.ToDouble(Console.ReadLine());
+
+                            if (comissao <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (comissao <= 0);
+
+                        int quantidade;
+                        do
+                        {
+                            Console.WriteLine("Informe a quantidade de carros vendidos: ");
+                            quantidade = Convert.ToInt32(Console.ReadLine());
+
+                            if (quantidade <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (quantidade <= 0);
+
+                        double totalVendas;
+                        do
+                        {
+                            Console.WriteLine("Informe o total de vendas deste funcionário: ");
+                            totalVendas = Convert.ToDouble(Console.ReadLine());
+
+                            if (totalVendas <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (totalVendas <= 0);
+
+                        //Mostrando o salário final
+                        Console.WriteLine("O salário final deste vendedor é: " + exercicio.SalarioFinal(salario, comissao, quantidade, totalVendas));
+                        break;
+                    case 9:
+                        double nota3;
+
+                        //Pegando as notas
+                        do
+                        {
+                            Console.WriteLine("Informe a 1° nota: ");
+                            nota1 = Convert.ToDouble(Console.ReadLine());
+
+                            if (exercicio.ValidarNotas(nota1) == true)
+                            {
+                                Console.WriteLine("Informe um valor de 0 a 10");
+                            }
+                        } while (exercicio.ValidarNotas(nota1) == true);
+
+                        do
+                        {
+                            Console.WriteLine("Informe a 2° nota: ");
+                            nota2 = Convert.ToDouble(Console.ReadLine());
+
+                            if (exercicio.ValidarNotas(nota2) == true)
+                            {
+                                Console.WriteLine("Informe um valor de 0 a 10");
+                            }
+                        } while (exercicio.ValidarNotas(nota2) == true);
+
+                        do
+                        {
+                            Console.WriteLine("Informe a 3° nota: ");
+                            nota3 = Convert.ToDouble(Console.ReadLine());
+
+                            if (exercicio.ValidarNotas(nota3) == true)
+                            {
+                                Console.WriteLine("Informe um valor de 0 a 10");
+                            }
+                        } while (exercicio.ValidarNotas(nota3) == true);
+
+                        //Mensagem em tela
+                        if (exercicio.Media(nota1, nota2, nota3) < 5)
+                        {
+                            Console.WriteLine("Aluno em recuperação e precisa de " + exercicio.NotaParaPassar(exercicio.Media(nota1, nota2,nota3)));
+                        }
+                        else
+                        {
+                            if (exercicio.Media(nota1, nota2, nota3) >= 5 && exercicio.Media(nota1, nota2, nota3) < 7)
+                            {
+                                Console.WriteLine("Aluno em prova final e precisa de " + exercicio.NotaParaPassar(exercicio.Media(nota1, nota2, nota3)));
+                            }
+                            else
+                            {
+                                Console.WriteLine("Aluno passado por média");
+                            }
+                        }
+                        break;
+                    case 10:
+                        MenuCd();
+                        switch (ConsultarOpcao)
+                        {
+                            case 0:
+                                Console.WriteLine("Obrigado!!");
+                                break;
+                            case 1:
+                                Console.WriteLine("R$10,00");
+                                break;
+                            case 2:
+                                Console.WriteLine("R$20,00");
+                                break;
+                            case 3:
+                                Console.WriteLine("R$30,00");
+                                break;
+                            case 4:
+                                Console.WriteLine("R$40,00");
+                                break;
+                            default:
+                                Console.WriteLine("Opção escolhida não é válida");
+                                break;
+                        }
                         break;
                     default:
                         Console.WriteLine("Opção escolhida não é válida");
