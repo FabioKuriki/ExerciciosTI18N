@@ -23,7 +23,7 @@ namespace ExerciciosTI18N
         //Método de validação
         public Boolean ValidarNotas(double nota)
         {
-            if((nota < 0) || (nota > 10))
+            if ((nota < 0) || (nota > 10))
             {
                 return true;
             }
@@ -34,9 +34,9 @@ namespace ExerciciosTI18N
         }//Fim do método
 
         //Exercício 02
-        public int Comparar(int num1, int num2)
+        public double Comparar(double num1, double num2)
         {
-            if(num1>num2)
+            if (num1 > num2)
             {
                 return num1;
             }
@@ -66,7 +66,7 @@ namespace ExerciciosTI18N
 
         public Boolean Validar(double num)
         {
-            if (num < 0) 
+            if (num < 0)
             {
                 return true;
             }
@@ -87,12 +87,12 @@ namespace ExerciciosTI18N
         {
             return custoFabrica + (custoFabrica * (pDistribuidor / 100)) + (custoFabrica * (pImposto / 100));
         }//Fim do CustoFinal
-        
-       //Exercício 08
-       public double SalarioFinal(double salario, double comissao, int quantidade, double totalVendas)
-       {
+
+        //Exercício 08
+        public double SalarioFinal(double salario, double comissao, int quantidade, double totalVendas)
+        {
             return salario + (comissao * quantidade) + (totalVendas * 0.05);
-       }//Fim do SalarioFinal
+        }//Fim do SalarioFinal
 
         //Exercício 09
         public double Media(double nota1, double nota2, double nota3)
@@ -111,5 +111,45 @@ namespace ExerciciosTI18N
                 return 10 - media;
             }
         }
+
+        //Exercício 11
+        public Boolean ValidarPar(int num)
+        {
+            if (num % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Exercício 12
+        public Boolean MaiorDeIdade(int num)
+        {
+            if (num >= 18)
+            {
+                return true;
+            }
+            else
+            { 
+                return false; 
+            }
+        }
+
+        //Exercício 14
+        public Boolean Bissexto(int ano)
+        {
+            if (ano % 4 == 0 && ano % 100 == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }//Fim da Classe
 }//Fim do Projeto

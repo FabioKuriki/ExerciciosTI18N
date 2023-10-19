@@ -26,23 +26,29 @@ namespace ExerciciosTI18N
         public void Menu()
         {
             Console.WriteLine("\n\n---------- Menu -------------\n" +
-                              "0. Sair\n" +
-                              "1. Exercício 01\n" +
-                              "2. Exercício 02\n" +
-                              "3. Exercício 03\n" +
-                              "4. Exercício 04\n" +
-                              "5. Exercício 05\n" +
-                              "6. Exercício 06\n" +
-                              "7. Exercício 07\n" +
-                              "8. Exercício 08\n" +
-                              "9. Exercício 09\n" +
+                              " 0. Sair\n" +
+                              " 1. Exercício 01\n" +
+                              " 2. Exercício 02\n" +
+                              " 3. Exercício 03\n" +
+                              " 4. Exercício 04\n" +
+                              " 5. Exercício 05\n" +
+                              " 6. Exercício 06\n" +
+                              " 7. Exercício 07\n" +
+                              " 8. Exercício 08\n" +
+                              " 9. Exercício 09\n" +
                               "10. Exercício 10\n" +
+                              "11. Exercício 11\n" +
+                              "12. Exercício 12\n" +
+                              "13. Exercício 13\n" +
+                              "14. Exercício 14\n" +
+                              "15. Exercício 15\n" +
+                              "16. Exercício 16\n" +
                               "-----------------------------" +
                               "\nEscolha uma das opções acima: ");
             ConsultarOpcao = Convert.ToInt32(Console.ReadLine());
         }//Fim do método menu
 
-        public void MenuCd()
+        public int MenuCd()
         {
             Console.WriteLine("\n\n---------- Menu -------------\n" +
                               "0. Sair\n" +
@@ -52,7 +58,8 @@ namespace ExerciciosTI18N
                               "4. Vermelho\n" +
                               "-----------------------------" +
                               "\nEscolha um dos tipos de CD's acima: ");
-            ConsultarOpcao = Convert.ToInt32((Console.ReadLine()));
+            int opcao = Convert.ToInt32((Console.ReadLine()));
+            return opcao;
         }
 
         public void Operacao()
@@ -391,28 +398,177 @@ namespace ExerciciosTI18N
                         }
                         break;
                     case 10:
-                        MenuCd();
-                        switch (ConsultarOpcao)
+                        int opcao;
+                        do
                         {
-                            case 0:
-                                Console.WriteLine("Obrigado!!");
-                                break;
-                            case 1:
-                                Console.WriteLine("R$10,00");
-                                break;
-                            case 2:
-                                Console.WriteLine("R$20,00");
-                                break;
-                            case 3:
-                                Console.WriteLine("R$30,00");
-                                break;
-                            case 4:
-                                Console.WriteLine("R$40,00");
-                                break;
-                            default:
-                                Console.WriteLine("Opção escolhida não é válida");
-                                break;
+                            opcao = MenuCd();//Menu para escolha dos CD's
+                            switch (opcao)
+                            {
+                                case 0:
+                                    Console.WriteLine("Obrigado!!");
+                                    break;
+                                case 1:
+                                    Console.WriteLine("R$10,00");
+                                    break;
+                                case 2:
+                                    Console.WriteLine("R$20,00");
+                                    break;
+                                case 3:
+                                    Console.WriteLine("R$30,00");
+                                    break;
+                                case 4:
+                                    Console.WriteLine("R$40,00");
+                                    break;
+                                default:
+                                    Console.WriteLine("Opção escolhida não é válida");
+                                    break;
+                            }
+                            
+                        } while (opcao != 0);
+                        break;
+                    case 11:
+                        Console.WriteLine("Informe um número: ");
+                        num = Convert.ToInt32(Console.ReadLine());
+
+                        if (exercicio.ValidarPar(num) == true)
+                        {
+                            Console.WriteLine("Este número é par");
                         }
+                        else
+                        {
+                            Console.WriteLine("Este número é impar");
+                        }
+                        break;
+                    case 12:
+                        //Idade
+                        int idade;
+                        do
+                        {
+                            Console.WriteLine("Informe a sua idade: ");
+                            idade = Convert.ToInt32(Console.ReadLine());
+
+                            if (idade < 0)
+                            {
+                                Console.WriteLine("Informe um valor positivo");
+                            }
+                        } while (idade < 0);
+
+                        //Validação
+                        if (exercicio.MaiorDeIdade(idade) == true)
+                        {
+                            Console.WriteLine("Você é maior de idade e já pode ser preso");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Você é menor de idade e ainda não pode beber");
+                        }
+                        break;
+                    case 13:
+                        Console.WriteLine("Informe o 1° número: ");
+                        double num3 = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("Informe o 2° número: " );
+                        double num4 = Convert.ToDouble(Console.ReadLine());
+
+                        double maior = exercicio.Comparar(num3, num4);//Compara os dois números digitados e uma variável recebe o maior
+
+                        Console.WriteLine("Informe o 3° número: ");
+                        double num5 = Convert.ToDouble(Console.ReadLine());
+
+                        Console.WriteLine("O maior número é: " + exercicio.Comparar(num5, maior));
+                        break;
+                    case 14:
+                        int ano;
+                        do
+                        {
+                            Console.WriteLine("Informe o ano: ");
+                            ano = Convert.ToInt32(Console.ReadLine());
+
+                            if (exercicio.Validar(ano) == true)
+                            {
+                                Console.WriteLine("Informe um número positivo");
+                            }
+                        } while (exercicio.Validar(ano) == true);
+
+                        if (exercicio.Bissexto(ano) == true)
+                        {
+                            Console.WriteLine("Este ano é bissexto");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Este ano não é bissexto");
+                        }
+                        break;
+                    case 15:
+                        do
+                        {
+                            Console.WriteLine("Informe a 1° nota: ");
+                            nota1 = Convert.ToDouble(Console.ReadLine());
+
+                            if (exercicio.ValidarNotas(nota1) == true)
+                            {
+                                Console.WriteLine("Informe um valor entre 0 e 10");
+                            }
+                        }while(exercicio.ValidarNotas(nota1) == true);
+
+                        do
+                        {
+                            Console.WriteLine("Informe a 2° nota: ");
+                            nota2 = Convert.ToDouble(Console.ReadLine());
+
+                            if (exercicio.ValidarNotas(nota2) == true)
+                            {
+                                Console.WriteLine("Informe um valor entre 0 e 10");
+                            }
+                        } while (exercicio.ValidarNotas(nota2) == true);
+
+                        if(exercicio.MediaDuasNotas(nota1, nota2) >= 7)
+                        {
+                            Console.WriteLine("Aprovado");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Reprovado");
+                        }
+                        break;
+                    case 16:
+                        double lado1;
+                        double lado2;
+                        double lado3;
+
+                        do
+                        {
+                            Console.WriteLine("Informe o 1° lado: ");
+                            lado1 = Convert.ToDouble(Console.ReadLine());
+
+                            if (lado1 <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (lado1 <= 0);
+
+                        do
+                        {
+                            Console.WriteLine("Informe o 2° lado: ");
+                            lado2 = Convert.ToDouble(Console.ReadLine());
+
+                            if (lado2 <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (lado2 <= 0);
+
+                        do
+                        {
+                            Console.WriteLine("Informe o 3° lado: ");
+                            lado3 = Convert.ToDouble(Console.ReadLine());
+
+                            if (lado3 <= 0)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (lado3 <= 0);
+
                         break;
                     default:
                         Console.WriteLine("Opção escolhida não é válida");
