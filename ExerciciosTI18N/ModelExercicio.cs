@@ -110,7 +110,7 @@ namespace ExerciciosTI18N
             {
                 return 10 - media;
             }
-        }
+        }//Fim NotaParaPassar
 
         //Exercício 11
         public Boolean ValidarPar(int num)
@@ -141,15 +141,136 @@ namespace ExerciciosTI18N
         //Exercício 14
         public Boolean Bissexto(int ano)
         {
-            if (ano % 4 == 0 && ano % 100 == 0)
-            {
-                return false;
-            }
-            else
+            if (ano % 4 == 0)
             {
                 return true;
             }
+            else
+            {
+                if(ano % 100 == 0 && ano % 400 ==0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
-    }//Fim da Classe
+        //Método Alternativo --------  DateTime.IsLeapYear(ano) - Retorna como valor True ou False
+
+        //Exercício 16
+        public Boolean Equilatero(double lado1, double lado2, double lado3)
+        {
+            if (lado1 == lado2 && lado2 == lado3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public Boolean Escaleno(double lado1, double lado2, double lado3)
+        {
+            if (lado1 != lado2 && lado1 != lado3 && lado2 != lado3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        //Exercício 17
+        public Boolean Positivo(double num)
+        {
+            if(num > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }//Validação caso positivo
+
+        public Boolean Negativo(double num)
+        {
+            if (num < 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }//Validação caso negativo
+
+        public Boolean Zero(double num)
+        {
+            if (num == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }//Validação caso 0
+
+        //Exercício 18
+        public Boolean ValidarMes(int mes)
+        {
+            if(mes >= 1 && mes <= 12)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Método Alternativo --------- DateTime.DaysInMonth(ano, mês) ----- informa quantidade de dias em um mês e dia informados
+
+        //Exercício 19
+        public double ImpostoRenda(double salario)
+        {
+            if (salario <= 2112)
+            {
+                return salario;
+            }
+            else
+            {
+                if(salario >= 2112.01 && salario <= 2826.65)
+                {
+                    return salario - 158.40;
+                }
+                else
+                {
+                    if(salario >= 2826.66 && salario <= 3751.05)
+                    {
+                        return salario - 370.40;
+                    }
+                    else
+                    {
+                        if (salario >= 3751.06 && salario <= 4664.68)
+                        {
+                            return salario - 651.73;
+                        }
+                        else
+                        {
+                            return salario - 884.96;
+                        }
+                    }
+                }
+            }
+        }
+        }//Fim da Classe
 }//Fim do Projeto

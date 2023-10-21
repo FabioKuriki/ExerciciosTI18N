@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,10 @@ namespace ExerciciosTI18N
                               "14. Exercício 14\n" +
                               "15. Exercício 15\n" +
                               "16. Exercício 16\n" +
+                              "17. Exercício 17\n" +
+                              "18. Exercício 18\n" +
+                              "19. Exercício 19\n" +
+                              "20. Exercício 20\n" +
                               "-----------------------------" +
                               "\nEscolha uma das opções acima: ");
             ConsultarOpcao = Convert.ToInt32(Console.ReadLine());
@@ -569,6 +574,92 @@ namespace ExerciciosTI18N
                             }
                         } while (lado3 <= 0);
 
+                        if(exercicio.Equilatero(lado1, lado2, lado3) == true)
+                        {
+                            Console.WriteLine("Este triângulo é equilátero");
+                        }
+                        else
+                        {
+                            if(exercicio.Escaleno(lado1, lado2, lado3) == true)
+                            {
+                                Console.WriteLine("Este triângulo é escaleno");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Este triângulo é isósceles");
+                            }
+                        }
+                        break;
+                    case 17:
+                        Console.WriteLine("Informe um número: ");
+                        num3= Convert.ToDouble(Console.ReadLine());
+
+                        if (exercicio.Positivo(num3) == true)
+                        {
+                            Console.WriteLine("Este número é positivo");
+                        }
+
+                        if (exercicio.Negativo(num3) == true)
+                        {
+                            Console.WriteLine("Este número é negativo");
+                        }
+
+                        if (exercicio.Zero(num3) == true)
+                        {
+                            Console.WriteLine("Este número é zero");
+                        }
+                        break;
+                    case 18:
+                        int mes;
+                        do
+                        {
+                            Console.WriteLine("Informe em formato númerico o mês: ");
+                            mes = Convert.ToInt32(Console.ReadLine());
+
+                            if (exercicio.ValidarMes(mes) == false)
+                            {
+                                Console.WriteLine("Informe um número entre 1 e 12");
+                            }
+                        } while (exercicio.ValidarMes(mes) == false);
+
+                        do
+                        {
+                            Console.WriteLine("Informe o ano: ");
+                            ano = Convert.ToInt32(Console.ReadLine());
+
+                            if (exercicio.Validar(ano) == true)
+                            {
+                                Console.WriteLine("Informe um número positivo");
+                            }
+                        } while (exercicio.Validar(ano) == true);
+
+                        Console.WriteLine("Este mês tem " + DateTime.DaysInMonth(ano, mes) + " dias");
+                        break;
+                    case 19:
+                        do
+                        {
+                            Console.WriteLine("Informe o seu salário: ");
+                            salario = Convert.ToDouble(Console.ReadLine());
+
+                            if (exercicio.Validar(salario) == true)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (exercicio.Validar(salario) == true);
+
+                        Console.WriteLine("O seu salário após o calculo do imposto de renda será: " + exercicio.ImpostoRenda(salario));
+                        break;
+                    case 20:
+                        do
+                        {
+                            Console.WriteLine("Informe o valor a ser sacado: ");
+                            salario = Convert.ToDouble(Console.ReadLine());
+
+                            if (exercicio.Validar(salario) == true)
+                            {
+                                Console.WriteLine("Informe um valor maior que 0");
+                            }
+                        } while (exercicio.Validar(salario) == true);
                         break;
                     default:
                         Console.WriteLine("Opção escolhida não é válida");
